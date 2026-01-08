@@ -1,0 +1,103 @@
+{
+  "id": "devops",
+  "name": "DevOps",
+  "description": "Development operations and deployment",
+  "topics": [
+    {
+      "id": "git",
+      "title": "Git & Version Control",
+      "description": "Branching, merging, workflows, and collaboration.",
+      "difficulty": "beginner",
+      "category": "devops",
+      "content": "<h2>Version Control with Git</h2><p>Git is the industry-standard distributed version control system for tracking changes in source code.</p><h3>Core Concepts</h3><ul><li><strong>Repository:</strong> A directory tracked by Git</li><li><strong>Commit:</strong> A snapshot of changes with a message</li><li><strong>Branch:</strong> An independent line of development</li><li><strong>Remote:</strong> A shared repository (GitHub, GitLab)</li></ul><h3>Essential Commands</h3><pre><code># Initialize and clone\\ngit init\\ngit clone [url]\\n\\n# Stage and commit\\ngit add .\\ngit commit -m \"message\"\\n\\n# Branching\\ngit branch feature-x\\ngit checkout -b feature-x\\ngit merge feature-x\\n\\n# Remote operations\\ngit push origin main\\ngit pull origin main\\ngit fetch</code></pre><h3>Branching Strategies</h3><ul><li><strong>Git Flow:</strong> Feature, develop, release, hotfix branches</li><li><strong>GitHub Flow:</strong> Simple main + feature branches</li><li><strong>Trunk-Based:</strong> Short-lived branches, frequent merges</li></ul><h3>Best Practices</h3><ul><li>Write meaningful commit messages</li><li>Make small, focused commits</li><li>Pull before pushing</li><li>Use .gitignore for build artifacts</li></ul>",
+      "videoId": "HkdAHXoRtos",
+      "resources": [
+        { "title": "Pro Git Book (Free)", "url": "https://git-scm.com/book/en/v2" },
+        { "title": "Oh Shit, Git!?!", "url": "https://ohshitgit.com/" },
+        { "title": "Learn Git Branching (Interactive)", "url": "https://learngitbranching.js.org/" },
+        { "title": "Conventional Commits", "url": "https://www.conventionalcommits.org/" },
+        { "title": "GitHub Skills", "url": "https://skills.github.com/" }
+      ]
+    },
+    {
+      "id": "terminal",
+      "title": "Terminal & Command Line",
+      "description": "Shell commands, scripting, and automation basics.",
+      "difficulty": "beginner",
+      "category": "devops",
+      "content": "<h2>Mastering the Terminal</h2><p>The command line is essential for development, automation, and server management.</p><h3>Navigation</h3><pre><code>pwd          # Print working directory\\nls -la       # List files (detailed)\\ncd path      # Change directory\\ncd ..        # Go up one level\\ncd ~         # Go to home</code></pre><h3>File Operations</h3><pre><code>touch file   # Create file\\nmkdir dir    # Create directory\\ncp src dst   # Copy\\nmv src dst   # Move/rename\\nrm file      # Remove file\\nrm -rf dir   # Remove directory</code></pre><h3>Text Processing</h3><pre><code>cat file     # View file\\nhead -n 10   # First 10 lines\\ntail -f log  # Follow log file\\ngrep pattern # Search text\\nwc -l        # Count lines</code></pre><h3>Piping & Redirection</h3><pre><code>cmd1 | cmd2       # Pipe output\\ncmd > file        # Redirect to file\\ncmd >> file       # Append to file\\ncmd 2>&1          # Redirect stderr</code></pre><h3>Shell Scripting Basics</h3><pre><code>#!/bin/bash\\nfor file in *.txt; do\\n  echo \"Processing $file\"\\ndone</code></pre>",
+      "videoId": "uwAqEzhyjtw",
+      "resources": [
+        { "title": "The Linux Command Line (Book)", "url": "https://linuxcommand.org/tlcl.php" },
+        { "title": "explainshell.com", "url": "https://explainshell.com/" },
+        { "title": "tldr pages (Simplified man)", "url": "https://tldr.sh/" },
+        { "title": "Shell Scripting Tutorial", "url": "https://www.shellscript.sh/" },
+        { "title": "Bash Academy", "url": "https://guide.bash.academy/" }
+      ]
+    },
+    {
+      "id": "docker",
+      "title": "Docker Basics",
+      "description": "Containers, images, docker-compose, and orchestration.",
+      "difficulty": "intermediate",
+      "category": "devops",
+      "content": "<h2>Containerization with Docker</h2><p>Docker packages applications with their dependencies into lightweight, portable containers.</p><h3>Core Concepts</h3><ul><li><strong>Image:</strong> Blueprint for containers (immutable)</li><li><strong>Container:</strong> Running instance of an image</li><li><strong>Dockerfile:</strong> Instructions to build an image</li><li><strong>Registry:</strong> Storage for images (Docker Hub)</li></ul><h3>Basic Commands</h3><pre><code># Images\\ndocker build -t myapp .\\ndocker pull node:18\\ndocker images\\n\\n# Containers\\ndocker run -d -p 3000:3000 myapp\\ndocker ps\\ndocker logs container_id\\ndocker stop container_id</code></pre><h3>Dockerfile Example</h3><pre><code>FROM node:18-alpine\\nWORKDIR /app\\nCOPY package*.json ./\\nRUN npm ci\\nCOPY . .\\nEXPOSE 3000\\nCMD [\"npm\", \"start\"]</code></pre><h3>Docker Compose</h3><pre><code>version: '3.8'\\nservices:\\n  app:\\n    build: .\\n    ports:\\n      - \"3000:3000\"\\n  db:\\n    image: postgres:15\\n    environment:\\n      POSTGRES_PASSWORD: secret</code></pre>",
+      "videoId": "pTFZFxd4hOI",
+      "resources": [
+        { "title": "Docker Documentation", "url": "https://docs.docker.com/" },
+        { "title": "Docker Hub", "url": "https://hub.docker.com/" },
+        { "title": "Dive (Image Explorer)", "url": "https://github.com/wagoodman/dive" },
+        { "title": "Docker Best Practices", "url": "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/" },
+        { "title": "Podman (Docker Alternative)", "url": "https://podman.io/" }
+      ]
+    },
+    {
+      "id": "cicd",
+      "title": "CI/CD Pipelines",
+      "description": "Continuous integration, deployment automation, and testing.",
+      "difficulty": "advanced",
+      "category": "devops",
+      "content": "<h2>Automating Delivery</h2><p>CI/CD automates building, testing, and deploying code changes.</p><h3>Continuous Integration</h3><ul><li>Automatically build on every commit</li><li>Run tests to catch regressions</li><li>Lint and format checks</li><li>Security scanning</li></ul><h3>Continuous Deployment</h3><ul><li>Automatically deploy to staging</li><li>Manual approval for production</li><li>Blue-green or canary deployments</li><li>Rollback capabilities</li></ul><h3>GitHub Actions Example</h3><pre><code>name: CI\\non: [push, pull_request]\\njobs:\\n  build:\\n    runs-on: ubuntu-latest\\n    steps:\\n      - uses: actions/checkout@v4\\n      - uses: actions/setup-node@v4\\n        with:\\n          node-version: 20\\n      - run: npm ci\\n      - run: npm test\\n      - run: npm run build</code></pre><h3>Pipeline Stages</h3><ol><li>Build - Compile and package</li><li>Test - Unit, integration, e2e</li><li>Analyze - Security, quality</li><li>Deploy - Staging then production</li></ol>",
+      "videoId": "scEDHsr3APg",
+      "resources": [
+        { "title": "GitHub Actions Docs", "url": "https://docs.github.com/en/actions" },
+        { "title": "GitLab CI/CD", "url": "https://docs.gitlab.com/ee/ci/" },
+        { "title": "CircleCI Documentation", "url": "https://circleci.com/docs/" },
+        { "title": "Dagger (Programmable CI)", "url": "https://dagger.io/" },
+        { "title": "Earthly (Build Automation)", "url": "https://earthly.dev/" }
+      ]
+    },
+    {
+      "id": "cloud",
+      "title": "Cloud Services",
+      "description": "AWS, GCP, Azure fundamentals and deployment patterns.",
+      "difficulty": "advanced",
+      "category": "devops",
+      "content": "<h2>Cloud Computing</h2><p>Cloud platforms provide on-demand infrastructure, reducing the need to manage physical servers.</p><h3>Major Providers</h3><ul><li><strong>AWS:</strong> Market leader, most services</li><li><strong>Google Cloud:</strong> Strong in data/ML</li><li><strong>Azure:</strong> Enterprise and Microsoft integration</li><li><strong>Cloudflare:</strong> Edge computing focus</li></ul><h3>Service Categories</h3><ul><li><strong>Compute:</strong> EC2, Lambda, Cloud Run</li><li><strong>Storage:</strong> S3, Cloud Storage, Blob</li><li><strong>Database:</strong> RDS, DynamoDB, Cloud SQL</li><li><strong>Networking:</strong> VPC, Load Balancers, CDN</li></ul><h3>Deployment Options</h3><ul><li><strong>IaaS:</strong> Virtual machines (full control)</li><li><strong>PaaS:</strong> Managed platforms (Heroku, Vercel)</li><li><strong>Serverless:</strong> Functions (Lambda, Cloudflare Workers)</li><li><strong>Containers:</strong> Kubernetes, ECS, Cloud Run</li></ul><h3>Infrastructure as Code</h3><ul><li><strong>Terraform:</strong> Multi-cloud IaC</li><li><strong>Pulumi:</strong> IaC with programming languages</li><li><strong>AWS CDK:</strong> AWS-specific IaC</li></ul>",
+      "videoId": "M988_fsOSWo",
+      "resources": [
+        { "title": "AWS Free Tier", "url": "https://aws.amazon.com/free/" },
+        { "title": "Google Cloud Free Tier", "url": "https://cloud.google.com/free" },
+        { "title": "Terraform Documentation", "url": "https://developer.hashicorp.com/terraform/docs" },
+        { "title": "Cloudflare Workers", "url": "https://workers.cloudflare.com/" },
+        { "title": "SST (Serverless Stack)", "url": "https://sst.dev/" }
+      ]
+    },
+    {
+      "id": "monitoring",
+      "title": "Monitoring & Observability",
+      "description": "Logging, metrics, alerting, and debugging production systems.",
+      "difficulty": "advanced",
+      "category": "devops",
+      "content": "<h2>Understanding Production</h2><p>Observability helps you understand what's happening in your systems through logs, metrics, and traces.</p><h3>Three Pillars</h3><ul><li><strong>Logs:</strong> Event records with context</li><li><strong>Metrics:</strong> Numerical measurements over time</li><li><strong>Traces:</strong> Request flows across services</li></ul><h3>Key Metrics</h3><ul><li><strong>Latency:</strong> Response time (p50, p95, p99)</li><li><strong>Traffic:</strong> Requests per second</li><li><strong>Errors:</strong> Error rate percentage</li><li><strong>Saturation:</strong> Resource utilization</li></ul><h3>Alerting Best Practices</h3><ul><li>Alert on symptoms, not causes</li><li>Avoid alert fatigue</li><li>Have runbooks for each alert</li><li>Use severity levels appropriately</li></ul><h3>Tools Stack</h3><ul><li><strong>Metrics:</strong> Prometheus, Datadog</li><li><strong>Logs:</strong> Loki, Elasticsearch</li><li><strong>Traces:</strong> Jaeger, OpenTelemetry</li><li><strong>Dashboards:</strong> Grafana</li></ul>",
+      "videoId": "r8UvWSX3KA8",
+      "resources": [
+        { "title": "Grafana Documentation", "url": "https://grafana.com/docs/" },
+        { "title": "Prometheus Docs", "url": "https://prometheus.io/docs/" },
+        { "title": "OpenTelemetry", "url": "https://opentelemetry.io/" },
+        { "title": "Sentry (Error Tracking)", "url": "https://docs.sentry.io/" },
+        { "title": "Better Stack (Uptime)", "url": "https://betterstack.com/" }
+      ]
+    }
+  ]
+}

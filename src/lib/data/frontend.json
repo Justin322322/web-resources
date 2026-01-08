@@ -1,0 +1,188 @@
+{
+  "id": "frontend",
+  "name": "Frontend",
+  "description": "Building user interfaces and experiences",
+  "topics": [
+    {
+      "id": "html-basics",
+      "title": "HTML Fundamentals",
+      "description": "Semantic markup, accessibility, and document structure.",
+      "difficulty": "beginner",
+      "category": "frontend",
+      "content": "<h2>The Building Blocks of the Web</h2><p>HTML provides the structure and content that browsers render.</p><h3>Semantic Elements</h3><ul><li><code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;footer&gt;</code></li></ul><h3>Accessibility</h3><ul><li>Always include alt text for images</li><li>Use proper heading hierarchy</li><li>Add labels to form inputs</li></ul>",
+      "videoId": "M_qW6_E2p7Q",
+      "resources": [
+        { "title": "MDN HTML Reference", "url": "https://developer.mozilla.org/en-US/docs/Web/HTML" },
+        { "title": "web.dev Learn HTML", "url": "https://web.dev/learn/html/" },
+        { "title": "HTML Living Standard", "url": "https://html.spec.whatwg.org/" },
+        { "title": "HTML Validator (W3C)", "url": "https://validator.w3.org/" },
+        { "title": "HTML Head Elements", "url": "https://htmlhead.dev/" }
+      ]
+    },
+    {
+      "id": "css-basics",
+      "title": "CSS Fundamentals",
+      "description": "Selectors, box model, flexbox, and grid layouts.",
+      "difficulty": "beginner",
+      "category": "frontend",
+      "content": "<h2>Styling the Web</h2><p>CSS controls visual presentation—colors, fonts, spacing, and layouts.</p><h3>Layout Systems</h3><ul><li><strong>Flexbox:</strong> One-dimensional layouts</li><li><strong>Grid:</strong> Two-dimensional layouts</li></ul><h3>Modern CSS</h3><ul><li>CSS Variables (Custom Properties)</li><li>Container Queries</li><li>:has() selector</li></ul>",
+      "videoId": "1PnVor36rC4",
+      "resources": [
+        { "title": "MDN CSS Reference", "url": "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+        { "title": "CSS-Tricks (Complete Guides)", "url": "https://css-tricks.com/guides/" },
+        { "title": "web.dev Learn CSS", "url": "https://web.dev/learn/css/" },
+        { "title": "Every Layout (Patterns)", "url": "https://every-layout.dev/" },
+        { "title": "Modern CSS Solutions", "url": "https://moderncss.dev/" },
+        { "title": "State of CSS Survey", "url": "https://stateofcss.com/" }
+      ]
+    },
+    {
+      "id": "javascript-essentials",
+      "title": "JavaScript Essentials",
+      "description": "Variables, functions, DOM manipulation, and ES6+ features.",
+      "difficulty": "beginner",
+      "category": "frontend",
+      "content": "<h2>The Language of the Web</h2><p>JavaScript brings interactivity to web pages.</p><h3>Modern Features</h3><ul><li>Arrow functions, destructuring, spread operator</li><li>Promises and async/await</li><li>ES Modules (import/export)</li><li>Optional chaining (?.) and nullish coalescing (??)</li></ul>",
+      "videoId": "hdI2bqOjy3c",
+      "resources": [
+        { "title": "javascript.info (The Modern Tutorial)", "url": "https://javascript.info/" },
+        { "title": "MDN JavaScript Guide", "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" },
+        { "title": "You Don't Know JS (Books)", "url": "https://github.com/getify/You-Dont-Know-JS" },
+        { "title": "Eloquent JavaScript", "url": "https://eloquentjavascript.net/" },
+        { "title": "State of JS Survey", "url": "https://stateofjs.com/" },
+        { "title": "TC39 Proposals", "url": "https://github.com/tc39/proposals" }
+      ]
+    },
+    {
+      "id": "responsive-design",
+      "title": "Responsive Design",
+      "description": "Media queries, mobile-first approach, and fluid layouts.",
+      "difficulty": "intermediate",
+      "category": "frontend",
+      "content": "<h2>Designing for Every Screen</h2><p>Responsive design ensures your site works on all devices.</p><h3>Key Techniques</h3><ul><li>Mobile-first approach</li><li>Media queries</li><li>Fluid typography (clamp())</li><li>Container queries</li></ul>",
+      "videoId": "Fj_t_8-uPzQ",
+      "resources": [
+        { "title": "web.dev Responsive Design", "url": "https://web.dev/learn/design/" },
+        { "title": "Utopia (Fluid Type Calculator)", "url": "https://utopia.fyi/" },
+        { "title": "Responsively App (Testing)", "url": "https://responsively.app/" },
+        { "title": "CSS Tricks: Container Queries", "url": "https://css-tricks.com/css-container-queries/" },
+        { "title": "Polypane Browser", "url": "https://polypane.app/" }
+      ]
+    },
+    {
+      "id": "typescript",
+      "title": "TypeScript",
+      "description": "Static typing, interfaces, generics, and type safety.",
+      "difficulty": "intermediate",
+      "category": "frontend",
+      "content": "<h2>JavaScript with Types</h2><p>TypeScript catches errors at compile time rather than runtime.</p><h3>Key Concepts</h3><ul><li>Type annotations and inference</li><li>Interfaces and type aliases</li><li>Generics</li><li>Union and intersection types</li></ul>",
+      "videoId": "3TSx_oQ4y6k",
+      "resources": [
+        { "title": "TypeScript Handbook", "url": "https://www.typescriptlang.org/docs/" },
+        { "title": "TypeScript Playground", "url": "https://www.typescriptlang.org/play" },
+        { "title": "Total TypeScript (Matt Pocock)", "url": "https://www.totaltypescript.com/tutorials" },
+        { "title": "Type Challenges", "url": "https://github.com/type-challenges/type-challenges" },
+        { "title": "ts-reset (Better Types)", "url": "https://github.com/total-typescript/ts-reset" }
+      ]
+    },
+    {
+      "id": "react",
+      "title": "React.js",
+      "description": "Components, hooks, state management, and virtual DOM.",
+      "difficulty": "intermediate",
+      "category": "frontend",
+      "content": "<h2>Building UIs with Components</h2><p>React builds user interfaces through reusable components.</p><h3>Key Concepts</h3><ul><li>Components and JSX</li><li>Hooks (useState, useEffect, useMemo)</li><li>Props and state</li><li>Server Components (React 19+)</li></ul>",
+      "videoId": "bMknfKXIFA8",
+      "resources": [
+        { "title": "React Documentation", "url": "https://react.dev/" },
+        { "title": "React Beta Docs (Learn)", "url": "https://react.dev/learn" },
+        { "title": "Bulletproof React (Best Practices)", "url": "https://github.com/alan2207/bulletproof-react" },
+        { "title": "React TypeScript Cheatsheet", "url": "https://react-typescript-cheatsheet.netlify.app/" },
+        { "title": "React Query (TanStack Query)", "url": "https://tanstack.com/query/latest" },
+        { "title": "Zustand (State Management)", "url": "https://github.com/pmndrs/zustand" }
+      ]
+    },
+    {
+      "id": "svelte",
+      "title": "Svelte",
+      "description": "Reactive declarations, stores, and compile-time optimization.",
+      "difficulty": "intermediate",
+      "category": "frontend",
+      "content": "<h2>Compiled Framework</h2><p>Svelte shifts work from runtime to compile time for optimal performance.</p><h3>Key Concepts</h3><ul><li>Reactive declarations ($:)</li><li>Stores for state management</li><li>Scoped CSS by default</li><li>SvelteKit for full-stack apps</li></ul>",
+      "videoId": "3TVy6GdtNuQ",
+      "resources": [
+        { "title": "Svelte Documentation", "url": "https://svelte.dev/docs" },
+        { "title": "Svelte Tutorial", "url": "https://learn.svelte.dev/" },
+        { "title": "SvelteKit Documentation", "url": "https://kit.svelte.dev/docs" },
+        { "title": "Joy of Code (Tutorials)", "url": "https://joyofcode.xyz/" },
+        { "title": "Svelte Society", "url": "https://sveltesociety.dev/" }
+      ]
+    },
+    {
+      "id": "state-management",
+      "title": "State Management",
+      "description": "Redux, Zustand, context patterns, and global state strategies.",
+      "difficulty": "advanced",
+      "category": "frontend",
+      "content": "<h2>Managing Application State</h2><p>As apps grow, state management becomes critical.</p><h3>Approaches</h3><ul><li><strong>Local:</strong> useState, component state</li><li><strong>Context:</strong> React Context, Svelte stores</li><li><strong>External:</strong> Zustand, Jotai, Redux Toolkit</li><li><strong>Server State:</strong> TanStack Query, SWR</li></ul>",
+      "videoId": "RVFAyFWO4go",
+      "resources": [
+        { "title": "TanStack Query", "url": "https://tanstack.com/query/latest" },
+        { "title": "Zustand", "url": "https://github.com/pmndrs/zustand" },
+        { "title": "Jotai (Atomic State)", "url": "https://jotai.org/" },
+        { "title": "Redux Toolkit", "url": "https://redux-toolkit.js.org/" },
+        { "title": "XState (State Machines)", "url": "https://xstate.js.org/" }
+      ]
+    },
+    {
+      "id": "build-tools",
+      "title": "Build Tools & Bundlers",
+      "description": "Vite, Webpack, module bundling, and development workflows.",
+      "difficulty": "intermediate",
+      "category": "frontend",
+      "content": "<h2>Modern Development Tooling</h2><p>Build tools transform source code into optimized production bundles.</p><h3>Popular Tools</h3><ul><li><strong>Vite:</strong> Fast dev server, ESM-based</li><li><strong>esbuild:</strong> Extremely fast bundler</li><li><strong>Turbopack:</strong> Next.js bundler</li><li><strong>Rollup:</strong> Library bundling</li></ul>",
+      "videoId": "5IG4UmULyoA",
+      "resources": [
+        { "title": "Vite Documentation", "url": "https://vitejs.dev/" },
+        { "title": "esbuild Documentation", "url": "https://esbuild.github.io/" },
+        { "title": "Biome (Formatter/Linter)", "url": "https://biomejs.dev/" },
+        { "title": "Turborepo (Monorepos)", "url": "https://turbo.build/repo" },
+        { "title": "pnpm (Package Manager)", "url": "https://pnpm.io/" }
+      ]
+    },
+    {
+      "id": "testing",
+      "title": "Frontend Testing",
+      "description": "Unit tests, integration tests, and end-to-end testing strategies.",
+      "difficulty": "advanced",
+      "category": "frontend",
+      "content": "<h2>Testing Your Code</h2><p>Testing ensures reliability and prevents regressions.</p><h3>Testing Pyramid</h3><ul><li><strong>Unit:</strong> Individual functions/components</li><li><strong>Integration:</strong> Component interactions</li><li><strong>E2E:</strong> Full user flows</li></ul>",
+      "videoId": "FJkSJ1Fm1ck",
+      "resources": [
+        { "title": "Vitest", "url": "https://vitest.dev/" },
+        { "title": "Testing Library", "url": "https://testing-library.com/" },
+        { "title": "Playwright", "url": "https://playwright.dev/" },
+        { "title": "Cypress", "url": "https://www.cypress.io/" },
+        { "title": "Mock Service Worker (MSW)", "url": "https://mswjs.io/" },
+        { "title": "Kent C. Dodds Testing Blog", "url": "https://kentcdodds.com/blog?q=testing" }
+      ]
+    },
+    {
+      "id": "accessibility",
+      "title": "Web Accessibility (a11y)",
+      "description": "WCAG guidelines, ARIA, and building inclusive experiences.",
+      "difficulty": "intermediate",
+      "category": "frontend",
+      "content": "<h2>Building for Everyone</h2><p>Accessibility ensures all users can access your content.</p><h3>WCAG Principles (POUR)</h3><ul><li><strong>Perceivable:</strong> Content must be presentable</li><li><strong>Operable:</strong> UI must be operable</li><li><strong>Understandable:</strong> Content must be clear</li><li><strong>Robust:</strong> Works with assistive tech</li></ul>",
+      "videoId": "e2nkq3h1P68",
+      "resources": [
+        { "title": "web.dev Learn Accessibility", "url": "https://web.dev/learn/accessibility/" },
+        { "title": "WCAG 2.2 Quick Reference", "url": "https://www.w3.org/WAI/WCAG22/quickref/" },
+        { "title": "axe DevTools", "url": "https://www.deque.com/axe/devtools/" },
+        { "title": "A11y Project Checklist", "url": "https://www.a11yproject.com/checklist/" },
+        { "title": "Inclusive Components", "url": "https://inclusive-components.design/" },
+        { "title": "NVDA Screen Reader", "url": "https://www.nvaccess.org/" }
+      ]
+    }
+  ]
+}

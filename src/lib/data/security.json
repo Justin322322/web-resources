@@ -1,0 +1,85 @@
+{
+  "id": "security",
+  "name": "Security",
+  "description": "Web security and best practices",
+  "topics": [
+    {
+      "id": "security-basics",
+      "title": "Web Security Fundamentals",
+      "description": "Common vulnerabilities and basic protection strategies.",
+      "difficulty": "beginner",
+      "category": "security",
+      "content": "<h2>Security Mindset</h2><p>Security isn't a feature—it's a process. Understanding common threats helps you build safer applications.</p><h3>Core Principles</h3><ul><li><strong>Defense in Depth:</strong> Multiple layers of security</li><li><strong>Least Privilege:</strong> Minimal necessary permissions</li><li><strong>Fail Securely:</strong> Deny by default on errors</li><li><strong>Trust No Input:</strong> Validate everything</li></ul><h3>Common Vulnerabilities</h3><ul><li><strong>XSS:</strong> Injecting malicious scripts</li><li><strong>CSRF:</strong> Forged cross-site requests</li><li><strong>SQL Injection:</strong> Malicious database queries</li><li><strong>Broken Auth:</strong> Session/token flaws</li></ul><h3>Quick Wins</h3><ul><li>Use HTTPS everywhere</li><li>Keep dependencies updated</li><li>Hash passwords with bcrypt/Argon2</li><li>Set security headers (CSP, HSTS)</li><li>Validate and sanitize all input</li></ul><h3>Security Headers</h3><pre><code>Content-Security-Policy: default-src 'self'\\nStrict-Transport-Security: max-age=31536000\\nX-Content-Type-Options: nosniff\\nX-Frame-Options: DENY</code></pre>",
+      "videoId": "WlmKwIlcBmM",
+      "resources": [
+        { "title": "OWASP Web Security", "url": "https://owasp.org/www-project-web-security-testing-guide/" },
+        { "title": "PortSwigger Web Security Academy", "url": "https://portswigger.net/web-security" },
+        { "title": "Security Headers Check", "url": "https://securityheaders.com/" },
+        { "title": "Mozilla Observatory", "url": "https://observatory.mozilla.org/" },
+        { "title": "Hacker101 (Free Training)", "url": "https://www.hacker101.com/" }
+      ]
+    },
+    {
+      "id": "cors",
+      "title": "CORS & Same-Origin Policy",
+      "description": "Cross-origin requests, preflight, and security implications.",
+      "difficulty": "intermediate",
+      "category": "security",
+      "content": "<h2>Cross-Origin Resource Sharing</h2><p>CORS is a security feature that controls how web pages can request resources from different origins.</p><h3>Same-Origin Policy</h3><p>Browsers block requests to different origins by default. An origin is defined by: protocol + host + port.</p><pre><code>https://example.com:443/path\\n  └─ protocol  └─ host └─ port</code></pre><h3>CORS Headers</h3><pre><code>Access-Control-Allow-Origin: https://mysite.com\\nAccess-Control-Allow-Methods: GET, POST, PUT, DELETE\\nAccess-Control-Allow-Headers: Content-Type, Authorization\\nAccess-Control-Allow-Credentials: true</code></pre><h3>Preflight Requests</h3><p>Complex requests trigger an OPTIONS preflight:</p><ul><li>Non-simple methods (PUT, DELETE)</li><li>Custom headers</li><li>Content-Type other than form-data/text</li></ul><h3>Common Mistakes</h3><ul><li>Using <code>Access-Control-Allow-Origin: *</code> with credentials</li><li>Reflecting Origin header without validation</li><li>Exposing sensitive data cross-origin</li></ul>",
+      "videoId": "4KHiSt0oLJ0",
+      "resources": [
+        { "title": "MDN: CORS", "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS" },
+        { "title": "CORS Explained (Jake Archibald)", "url": "https://jakearchibald.com/2021/cors/" },
+        { "title": "test-cors.org", "url": "https://test-cors.org/" },
+        { "title": "CORS Cheatsheet (OWASP)", "url": "https://cheatsheetseries.owasp.org/cheatsheets/Cross-Origin_Resource_Sharing_Cheat_Sheet.html" }
+      ]
+    },
+    {
+      "id": "owasp",
+      "title": "OWASP Top 10",
+      "description": "Critical security risks: XSS, injection, CSRF, and more.",
+      "difficulty": "intermediate",
+      "category": "security",
+      "content": "<h2>Top 10 Web Vulnerabilities</h2><p>The OWASP Top 10 is the industry-standard list of the most critical web application security risks.</p><h3>2021 Top 10</h3><ol><li><strong>Broken Access Control:</strong> Users accessing unauthorized resources</li><li><strong>Cryptographic Failures:</strong> Weak encryption, exposed secrets</li><li><strong>Injection:</strong> SQL, NoSQL, OS command injection</li><li><strong>Insecure Design:</strong> Missing security in architecture</li><li><strong>Security Misconfiguration:</strong> Default configs, verbose errors</li><li><strong>Vulnerable Components:</strong> Outdated dependencies</li><li><strong>Auth Failures:</strong> Broken session management</li><li><strong>Data Integrity:</strong> Untrusted serialization, CI/CD</li><li><strong>Logging Failures:</strong> Missing audit trails</li><li><strong>SSRF:</strong> Server-side request forgery</li></ol><h3>XSS Prevention</h3><pre><code>// Bad - vulnerable\\nelement.innerHTML = userInput;\\n\\n// Good - escaped\\nelement.textContent = userInput;</code></pre><h3>SQL Injection Prevention</h3><pre><code>// Bad - vulnerable\\nquery = \"SELECT * FROM users WHERE id = \" + userId;\\n\\n// Good - parameterized\\nquery = \"SELECT * FROM users WHERE id = $1\";\\ndb.query(query, [userId]);</code></pre>",
+      "videoId": "cvzr_yvRHcE",
+      "resources": [
+        { "title": "OWASP Top 10 (2021)", "url": "https://owasp.org/Top10/" },
+        { "title": "OWASP Cheat Sheets", "url": "https://cheatsheetseries.owasp.org/" },
+        { "title": "Snyk Vulnerability Database", "url": "https://snyk.io/vuln/" },
+        { "title": "Dependabot (GitHub)", "url": "https://github.com/dependabot" },
+        { "title": "npm audit", "url": "https://docs.npmjs.com/cli/v8/commands/npm-audit" }
+      ]
+    },
+    {
+      "id": "secure-coding",
+      "title": "Secure Coding Practices",
+      "description": "Input validation, encryption, and security-first development.",
+      "difficulty": "advanced",
+      "category": "security",
+      "content": "<h2>Building Secure Applications</h2><p>Security should be considered at every stage of development, not added as an afterthought.</p><h3>Input Validation</h3><ul><li>Validate on server-side (never trust client)</li><li>Use allowlists over blocklists</li><li>Validate type, length, format, range</li><li>Use validation libraries (Zod, Yup)</li></ul><pre><code>import { z } from 'zod';\\n\\nconst userSchema = z.object({\\n  email: z.string().email(),\\n  age: z.number().min(0).max(150)\\n});</code></pre><h3>Secret Management</h3><ul><li>Never commit secrets to Git</li><li>Use environment variables</li><li>Use secret managers (Vault, AWS Secrets)</li><li>Rotate secrets regularly</li></ul><h3>Cryptography</h3><ul><li>Use proven libraries (don't roll your own)</li><li>bcrypt or Argon2 for passwords</li><li>AES-256-GCM for encryption</li><li>TLS 1.3 for transport</li></ul><h3>Security Scanning</h3><ul><li><strong>SAST:</strong> Static code analysis</li><li><strong>DAST:</strong> Runtime testing</li><li><strong>SCA:</strong> Dependency scanning</li></ul>",
+      "videoId": "F7aYf1dVVQw",
+      "resources": [
+        { "title": "OWASP Secure Coding Practices", "url": "https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/" },
+        { "title": "Snyk (Security Scanning)", "url": "https://snyk.io/" },
+        { "title": "GitHub Code Scanning", "url": "https://docs.github.com/en/code-security/code-scanning" },
+        { "title": "Doppler (Secret Management)", "url": "https://www.doppler.com/" },
+        { "title": "CWE (Common Weakness Enumeration)", "url": "https://cwe.mitre.org/" }
+      ]
+    },
+    {
+      "id": "auth-security",
+      "title": "Authentication Security",
+      "description": "Password hashing, session management, and MFA implementation.",
+      "difficulty": "advanced",
+      "category": "security",
+      "content": "<h2>Protecting User Identity</h2><p>Authentication is the most attacked surface of web applications. Implement it correctly.</p><h3>Password Security</h3><ul><li>Hash with bcrypt (cost 12+) or Argon2id</li><li>Never store plaintext passwords</li><li>Enforce minimum complexity</li><li>Check against breached password lists</li></ul><pre><code>import bcrypt from 'bcrypt';\\n\\nconst hash = await bcrypt.hash(password, 12);\\nconst valid = await bcrypt.compare(password, hash);</code></pre><h3>Session Security</h3><ul><li>Use secure, httpOnly, sameSite cookies</li><li>Regenerate session ID after login</li><li>Implement session timeouts</li><li>Invalidate all sessions on password change</li></ul><pre><code>Set-Cookie: session=abc123;\\n  HttpOnly;\\n  Secure;\\n  SameSite=Lax;\\n  Path=/;\\n  Max-Age=86400</code></pre><h3>Multi-Factor Authentication</h3><ul><li>TOTP apps (Google Authenticator)</li><li>WebAuthn/Passkeys (best option)</li><li>SMS (vulnerable but better than nothing)</li><li>Recovery codes for account recovery</li></ul>",
+      "videoId": "i7of02i1tkg",
+      "resources": [
+        { "title": "Auth.js Security", "url": "https://authjs.dev/concepts/security" },
+        { "title": "Have I Been Pwned API", "url": "https://haveibeenpwned.com/API/v3" },
+        { "title": "WebAuthn Guide", "url": "https://webauthn.guide/" },
+        { "title": "NIST Password Guidelines", "url": "https://pages.nist.gov/800-63-3/sp800-63b.html" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "id": "backend",
+  "name": "Backend",
+  "description": "Server-side development and APIs",
+  "topics": [
+    {
+      "id": "nodejs-basics",
+      "title": "Node.js Basics",
+      "description": "Runtime environment, modules, npm, and async programming.",
+      "difficulty": "beginner",
+      "category": "backend",
+      "content": "<h2>JavaScript on the Server</h2><p>Node.js is a JavaScript runtime built on Chrome's V8 engine, enabling JavaScript to run outside the browser for server-side development.</p><h3>Core Concepts</h3><ul><li><strong>Event Loop:</strong> Non-blocking I/O that handles concurrent operations efficiently</li><li><strong>Modules:</strong> CommonJS (require) and ES Modules (import/export)</li><li><strong>npm:</strong> Package manager with the largest ecosystem of open source libraries</li><li><strong>package.json:</strong> Project manifest defining dependencies and scripts</li></ul><h3>Async Patterns</h3><ul><li><strong>Callbacks:</strong> Traditional async pattern (callback hell)</li><li><strong>Promises:</strong> Chainable async operations</li><li><strong>async/await:</strong> Synchronous-looking async code</li></ul><pre><code>// Reading a file asynchronously\\nconst fs = require('fs/promises');\\n\\nasync function readConfig() {\\n  const data = await fs.readFile('config.json', 'utf-8');\\n  return JSON.parse(data);\\n}</code></pre><h3>Built-in Modules</h3><ul><li><code>fs</code> - File system operations</li><li><code>path</code> - Path manipulation</li><li><code>http</code> - HTTP server and client</li><li><code>crypto</code> - Cryptographic functions</li><li><code>events</code> - Event emitter pattern</li></ul>",
+      "videoId": "TlB_eWDSMt4",
+      "resources": [
+        { "title": "Node.js Documentation", "url": "https://nodejs.org/docs/latest/api/" },
+        { "title": "Node.js Best Practices", "url": "https://github.com/goldbergyoni/nodebestpractices" },
+        { "title": "The Node.js Event Loop", "url": "https://nodejs.org/en/learn/asynchronous-work/event-loop-timers-and-nexttick" },
+        { "title": "npm Documentation", "url": "https://docs.npmjs.com/" },
+        { "title": "Node.js Design Patterns (Book)", "url": "https://www.nodejsdesignpatterns.com/" }
+      ]
+    },
+    {
+      "id": "rest-apis",
+      "title": "REST APIs",
+      "description": "RESTful design principles, endpoints, and HTTP methods.",
+      "difficulty": "intermediate",
+      "category": "backend",
+      "content": "<h2>Building RESTful Services</h2><p>REST (Representational State Transfer) is an architectural style for designing networked applications using standard HTTP methods.</p><h3>REST Principles</h3><ul><li><strong>Stateless:</strong> Each request contains all needed information</li><li><strong>Resource-based:</strong> URLs represent resources, not actions</li><li><strong>HTTP Methods:</strong> Use verbs appropriately (GET, POST, PUT, DELETE)</li><li><strong>Representations:</strong> Resources can have multiple formats (JSON, XML)</li></ul><h3>URL Design</h3><pre><code>GET    /api/users          # List users\\nGET    /api/users/:id       # Get single user\\nPOST   /api/users           # Create user\\nPUT    /api/users/:id       # Update user\\nDELETE /api/users/:id       # Delete user\\n\\n# Nested resources\\nGET    /api/users/:id/posts # User's posts</code></pre><h3>Response Codes</h3><ul><li><strong>200 OK:</strong> Successful GET/PUT</li><li><strong>201 Created:</strong> Successful POST</li><li><strong>204 No Content:</strong> Successful DELETE</li><li><strong>400 Bad Request:</strong> Invalid input</li><li><strong>401 Unauthorized:</strong> Authentication required</li><li><strong>404 Not Found:</strong> Resource doesn't exist</li><li><strong>422 Unprocessable:</strong> Validation errors</li></ul><h3>Best Practices</h3><ul><li>Use plural nouns for resources</li><li>Version your API (/api/v1/)</li><li>Return consistent error shapes</li><li>Implement pagination for lists</li><li>Use HATEOAS for discoverability</li></ul>",
+      "videoId": "lsMQRaeKNDk",
+      "resources": [
+        { "title": "REST API Tutorial", "url": "https://restfulapi.net/" },
+        { "title": "Express.js Documentation", "url": "https://expressjs.com/" },
+        { "title": "Hono (Fast Web Framework)", "url": "https://hono.dev/" },
+        { "title": "Fastify Documentation", "url": "https://www.fastify.io/docs/latest/" },
+        { "title": "OpenAPI Specification", "url": "https://swagger.io/specification/" },
+        { "title": "JSON API Specification", "url": "https://jsonapi.org/" }
+      ]
+    },
+    {
+      "id": "databases",
+      "title": "Databases (SQL vs NoSQL)",
+      "description": "PostgreSQL, MongoDB, data modeling, and query optimization.",
+      "difficulty": "intermediate",
+      "category": "backend",
+      "content": "<h2>Storing and Retrieving Data</h2><p>Databases are the backbone of most applications, providing persistent storage and efficient data retrieval.</p><h3>SQL (Relational)</h3><ul><li><strong>Structure:</strong> Tables with rows and columns</li><li><strong>Schema:</strong> Defined upfront, enforced by database</li><li><strong>Relationships:</strong> Foreign keys, JOINs</li><li><strong>ACID:</strong> Strong consistency guarantees</li><li><strong>Examples:</strong> PostgreSQL, MySQL, SQLite</li></ul><pre><code>-- SQL Example\\nSELECT users.name, COUNT(posts.id) as post_count\\nFROM users\\nLEFT JOIN posts ON users.id = posts.user_id\\nGROUP BY users.id\\nORDER BY post_count DESC;</code></pre><h3>NoSQL (Non-Relational)</h3><ul><li><strong>Document:</strong> MongoDB, CouchDB (JSON-like docs)</li><li><strong>Key-Value:</strong> Redis, DynamoDB</li><li><strong>Wide-Column:</strong> Cassandra, ScyllaDB</li><li><strong>Graph:</strong> Neo4j, ArangoDB</li></ul><h3>When to Use What</h3><ul><li><strong>SQL:</strong> Complex queries, transactions, data integrity</li><li><strong>NoSQL:</strong> Flexible schema, horizontal scaling, specific access patterns</li></ul><h3>ORMs and Query Builders</h3><ul><li><strong>Prisma:</strong> Type-safe ORM with migrations</li><li><strong>Drizzle:</strong> TypeScript SQL query builder</li><li><strong>Knex:</strong> SQL query builder</li><li><strong>Mongoose:</strong> MongoDB ODM</li></ul>",
+      "videoId": "ZS_kXvOeQ5Y",
+      "resources": [
+        { "title": "PostgreSQL Documentation", "url": "https://www.postgresql.org/docs/" },
+        { "title": "Prisma Documentation", "url": "https://www.prisma.io/docs" },
+        { "title": "Drizzle ORM", "url": "https://orm.drizzle.team/" },
+        { "title": "Use The Index, Luke (SQL Tuning)", "url": "https://use-the-index-luke.com/" },
+        { "title": "MongoDB University (Free)", "url": "https://university.mongodb.com/" },
+        { "title": "Redis Documentation", "url": "https://redis.io/docs/" }
+      ]
+    },
+    {
+      "id": "authentication",
+      "title": "Authentication & Authorization",
+      "description": "JWT, OAuth, sessions, and access control patterns.",
+      "difficulty": "intermediate",
+      "category": "backend",
+      "content": "<h2>Securing Your Application</h2><p>Authentication verifies who users are; authorization determines what they can do.</p><h3>Authentication Methods</h3><ul><li><strong>Session-based:</strong> Server stores session, client has session ID cookie</li><li><strong>JWT (JSON Web Tokens):</strong> Stateless, self-contained tokens</li><li><strong>OAuth 2.0:</strong> Delegated authorization (Login with Google)</li><li><strong>Magic Links:</strong> Passwordless email authentication</li><li><strong>Passkeys:</strong> WebAuthn-based passwordless auth</li></ul><h3>JWT Structure</h3><pre><code>// JWT has 3 parts: header.payload.signature\\n{\\n  \"header\": { \"alg\": \"HS256\", \"typ\": \"JWT\" },\\n  \"payload\": { \"sub\": \"1234\", \"exp\": 1234567890 },\\n  \"signature\": \"...\"\\n}</code></pre><h3>Authorization Patterns</h3><ul><li><strong>RBAC:</strong> Role-Based Access Control (admin, user, guest)</li><li><strong>ABAC:</strong> Attribute-Based Access Control</li><li><strong>Permissions:</strong> Granular action-based (can:read, can:write)</li></ul><h3>Security Best Practices</h3><ul><li>Hash passwords with bcrypt or Argon2</li><li>Use HTTPS everywhere</li><li>Set secure, httpOnly cookies</li><li>Implement rate limiting</li><li>Validate and sanitize all inputs</li></ul>",
+      "videoId": "2PPSXonhIck",
+      "resources": [
+        { "title": "Auth.js (NextAuth)", "url": "https://authjs.dev/" },
+        { "title": "Lucia Auth", "url": "https://lucia-auth.com/" },
+        { "title": "Clerk Documentation", "url": "https://clerk.com/docs" },
+        { "title": "JWT.io (Debugger)", "url": "https://jwt.io/" },
+        { "title": "OAuth 2.0 Simplified", "url": "https://www.oauth.com/" },
+        { "title": "OWASP Authentication Cheatsheet", "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html" }
+      ]
+    },
+    {
+      "id": "graphql",
+      "title": "GraphQL",
+      "description": "Schema design, resolvers, queries, and mutations.",
+      "difficulty": "advanced",
+      "category": "backend",
+      "content": "<h2>Query Language for APIs</h2><p>GraphQL lets clients request exactly the data they need, solving over-fetching and under-fetching problems common with REST.</p><h3>Core Concepts</h3><ul><li><strong>Schema:</strong> Type definitions describing your data</li><li><strong>Queries:</strong> Read operations</li><li><strong>Mutations:</strong> Write operations</li><li><strong>Resolvers:</strong> Functions that fetch data for each field</li><li><strong>Subscriptions:</strong> Real-time updates via WebSocket</li></ul><pre><code># Schema Definition\\ntype User {\\n  id: ID!\\n  name: String!\\n  email: String!\\n  posts: [Post!]!\\n}\\n\\ntype Query {\\n  user(id: ID!): User\\n  users: [User!]!\\n}\\n\\n# Query Example\\nquery {\\n  user(id: \"1\") {\\n    name\\n    posts {\\n      title\\n    }\\n  }\\n}</code></pre><h3>Benefits</h3><ul><li>Single endpoint for all data needs</li><li>Strongly typed schema</li><li>Built-in documentation (introspection)</li><li>Efficient data loading with DataLoader</li></ul><h3>Considerations</h3><ul><li>N+1 query problem (solved by DataLoader)</li><li>Caching is more complex than REST</li><li>Query complexity and depth limiting</li></ul>",
+      "videoId": "eIQh02xuVw4",
+      "resources": [
+        { "title": "GraphQL Official Docs", "url": "https://graphql.org/learn/" },
+        { "title": "Apollo GraphQL", "url": "https://www.apollographql.com/docs/" },
+        { "title": "The Guild (GraphQL Tools)", "url": "https://the-guild.dev/" },
+        { "title": "Pothos GraphQL (Schema Builder)", "url": "https://pothos-graphql.dev/" },
+        { "title": "GraphQL Playground", "url": "https://github.com/graphql/graphql-playground" },
+        { "title": "How to GraphQL (Tutorial)", "url": "https://www.howtographql.com/" }
+      ]
+    },
+    {
+      "id": "server-architecture",
+      "title": "Server Architecture",
+      "description": "Microservices, load balancing, and scaling strategies.",
+      "difficulty": "advanced",
+      "category": "backend",
+      "content": "<h2>Designing for Scale</h2><p>As applications grow, architecture decisions become critical for performance, reliability, and maintainability.</p><h3>Architectural Patterns</h3><ul><li><strong>Monolith:</strong> Single deployable unit (good for starting)</li><li><strong>Microservices:</strong> Independent services with specific responsibilities</li><li><strong>Serverless:</strong> Function-as-a-Service (AWS Lambda, Vercel Functions)</li><li><strong>Event-Driven:</strong> Services communicate via events/messages</li></ul><h3>Scaling Strategies</h3><ul><li><strong>Vertical:</strong> Bigger servers (limited)</li><li><strong>Horizontal:</strong> More servers behind load balancer</li><li><strong>Database:</strong> Read replicas, sharding, caching</li></ul><h3>Key Components</h3><ul><li><strong>Load Balancer:</strong> Distributes traffic (nginx, HAProxy)</li><li><strong>Message Queue:</strong> Async processing (Redis, RabbitMQ, Kafka)</li><li><strong>Cache:</strong> Reduce database load (Redis, Memcached)</li><li><strong>CDN:</strong> Edge caching for static assets</li></ul><h3>Reliability Patterns</h3><ul><li>Circuit breakers for failing services</li><li>Retries with exponential backoff</li><li>Health checks and graceful degradation</li><li>Blue-green or canary deployments</li></ul>",
+      "videoId": "i53Gi_K3o7I",
+      "resources": [
+        { "title": "System Design Primer", "url": "https://github.com/donnemartin/system-design-primer" },
+        { "title": "The Twelve-Factor App", "url": "https://12factor.net/" },
+        { "title": "Martin Fowler's Architecture", "url": "https://martinfowler.com/architecture/" },
+        { "title": "ByteByteGo (System Design)", "url": "https://bytebytego.com/" },
+        { "title": "AWS Well-Architected", "url": "https://aws.amazon.com/architecture/well-architected/" },
+        { "title": "Designing Data-Intensive Applications", "url": "https://dataintensive.net/" }
+      ]
+    },
+    {
+      "id": "api-design",
+      "title": "API Design Patterns",
+      "description": "Versioning, pagination, error handling, and documentation.",
+      "difficulty": "intermediate",
+      "category": "backend",
+      "content": "<h2>Designing Great APIs</h2><p>Well-designed APIs are intuitive, consistent, and developer-friendly.</p><h3>Versioning Strategies</h3><ul><li><strong>URL Path:</strong> /api/v1/users (most common)</li><li><strong>Query Param:</strong> /api/users?version=1</li><li><strong>Header:</strong> Accept: application/vnd.api+json;version=1</li></ul><h3>Pagination</h3><pre><code>// Cursor-based (recommended)\\n{\\n  \"data\": [...],\\n  \"nextCursor\": \"abc123\",\\n  \"hasMore\": true\\n}\\n\\n// Offset-based\\n{\\n  \"data\": [...],\\n  \"page\": 1,\\n  \"totalPages\": 10\\n}</code></pre><h3>Error Responses</h3><pre><code>{\\n  \"error\": {\\n    \"code\": \"VALIDATION_ERROR\",\\n    \"message\": \"Invalid input\",\\n    \"details\": [\\n      { \"field\": \"email\", \"message\": \"Invalid format\" }\\n    ]\\n  }\\n}</code></pre><h3>Documentation</h3><ul><li><strong>OpenAPI/Swagger:</strong> API specification standard</li><li><strong>Postman:</strong> API documentation and testing</li><li><strong>Readme.com:</strong> Developer documentation platform</li></ul>",
+      "videoId": "6sUbt-Qp6Pg",
+      "resources": [
+        { "title": "OpenAPI Specification", "url": "https://swagger.io/specification/" },
+        { "title": "Stoplight (API Design)", "url": "https://stoplight.io/" },
+        { "title": "tRPC (End-to-end typesafe APIs)", "url": "https://trpc.io/" },
+        { "title": "Hoppscotch (API Testing)", "url": "https://hoppscotch.io/" },
+        { "title": "API Security Checklist", "url": "https://github.com/shieldfy/API-Security-Checklist" }
+      ]
+    },
+    {
+      "id": "caching",
+      "title": "Caching Strategies",
+      "description": "Redis, CDN, HTTP caching, and cache invalidation.",
+      "difficulty": "advanced",
+      "category": "backend",
+      "content": "<h2>Speed Through Caching</h2><p>Caching reduces latency and database load by storing frequently accessed data closer to where it's needed.</p><h3>Cache Layers</h3><ul><li><strong>Browser Cache:</strong> HTTP headers (Cache-Control, ETag)</li><li><strong>CDN:</strong> Edge servers worldwide (Cloudflare, Vercel Edge)</li><li><strong>Application Cache:</strong> In-memory (Redis, Memcached)</li><li><strong>Database Cache:</strong> Query cache, materialized views</li></ul><h3>Caching Patterns</h3><ul><li><strong>Cache-Aside:</strong> App checks cache, then DB</li><li><strong>Write-Through:</strong> Write to cache and DB together</li><li><strong>Write-Behind:</strong> Write to cache, async DB write</li></ul><h3>HTTP Cache Headers</h3><pre><code>Cache-Control: public, max-age=31536000\\nCache-Control: private, no-cache\\nCache-Control: no-store\\nETag: \"abc123\"\\nLast-Modified: Wed, 21 Oct 2023 07:28:00 GMT</code></pre><h3>Cache Invalidation</h3><p>\"There are only two hard things in CS: cache invalidation and naming things.\"</p><ul><li>Time-based expiration (TTL)</li><li>Event-based invalidation</li><li>Versioned keys</li></ul>",
+      "videoId": "U3RkDLtS7uY",
+      "resources": [
+        { "title": "Redis Documentation", "url": "https://redis.io/docs/" },
+        { "title": "Upstash (Serverless Redis)", "url": "https://upstash.com/" },
+        { "title": "MDN: HTTP Caching", "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching" },
+        { "title": "Cloudflare Caching", "url": "https://developers.cloudflare.com/cache/" },
+        { "title": "Caching at Scale (AWS)", "url": "https://aws.amazon.com/caching/" }
+      ]
+    }
+  ]
+}

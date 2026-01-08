@@ -1,0 +1,99 @@
+{
+  "id": "performance",
+  "name": "Performance",
+  "description": "Optimization and speed improvements",
+  "topics": [
+    {
+      "id": "web-vitals",
+      "title": "Web Vitals & Metrics",
+      "description": "LCP, FID, CLS, and measuring real user experience.",
+      "difficulty": "beginner",
+      "category": "performance",
+      "content": "<h2>Measuring User Experience</h2><p>Core Web Vitals are Google's metrics for measuring real-world user experience on your site.</p><h3>Core Web Vitals</h3><ul><li><strong>LCP (Largest Contentful Paint):</strong> Loading performance. Measures when the main content is visible. Goal: < 2.5s</li><li><strong>INP (Interaction to Next Paint):</strong> Responsiveness. Measures interaction delay. Goal: < 200ms</li><li><strong>CLS (Cumulative Layout Shift):</strong> Visual stability. Measures unexpected layout shifts. Goal: < 0.1</li></ul><h3>Other Important Metrics</h3><ul><li><strong>TTFB:</strong> Time to First Byte (server response)</li><li><strong>FCP:</strong> First Contentful Paint</li><li><strong>TBT:</strong> Total Blocking Time</li><li><strong>TTI:</strong> Time to Interactive</li></ul><h3>Measuring Tools</h3><ul><li><strong>Lab Data:</strong> Lighthouse, WebPageTest</li><li><strong>Field Data:</strong> Chrome UX Report (CrUX)</li><li><strong>Real User Monitoring:</strong> Vercel Analytics, Fathom</li></ul><h3>Performance Budget</h3><ul><li>Set limits for JS bundle size (< 200KB)</li><li>Set limits for total page weight (< 1MB)</li><li>Monitor in CI/CD pipeline</li></ul>",
+      "videoId": "AQqFZ5t8uNc",
+      "resources": [
+        { "title": "web.dev Core Web Vitals", "url": "https://web.dev/articles/vitals" },
+        { "title": "PageSpeed Insights", "url": "https://pagespeed.web.dev/" },
+        { "title": "WebPageTest", "url": "https://www.webpagetest.org/" },
+        { "title": "Chrome UX Report", "url": "https://developer.chrome.com/docs/crux/" },
+        { "title": "Lighthouse", "url": "https://developer.chrome.com/docs/lighthouse/" }
+      ]
+    },
+    {
+      "id": "image-optimization",
+      "title": "Image Optimization",
+      "description": "Formats, compression, lazy loading, and responsive images.",
+      "difficulty": "intermediate",
+      "category": "performance",
+      "content": "<h2>Optimizing Images</h2><p>Images are often the largest assets on a page. Optimizing them has massive impact on performance.</p><h3>Modern Formats</h3><ul><li><strong>WebP:</strong> 25-35% smaller than JPEG, wide support</li><li><strong>AVIF:</strong> 50% smaller than JPEG, growing support</li><li><strong>SVG:</strong> Vector graphics, infinitely scalable</li></ul><h3>Responsive Images</h3><pre><code>&lt;img\\n  srcset=\"image-400w.webp 400w,\\n          image-800w.webp 800w,\\n          image-1200w.webp 1200w\"\\n  sizes=\"(max-width: 600px) 400px,\\n         (max-width: 1200px) 800px,\\n         1200px\"\\n  src=\"image-800w.webp\"\\n  alt=\"Description\"\\n/&gt;</code></pre><h3>Lazy Loading</h3><pre><code>&lt;img loading=\"lazy\" src=\"below-fold.jpg\" alt=\"...\"&gt;</code></pre><h3>Image CDNs</h3><ul><li>Automatic format conversion</li><li>On-the-fly resizing</li><li>Global edge caching</li><li>Examples: Cloudinary, Imgix, Vercel Image</li></ul><h3>Best Practices</h3><ul><li>Always specify width and height (prevents CLS)</li><li>Use loading=\"lazy\" for below-fold images</li><li>Serve properly sized images</li><li>Use next-gen formats with fallbacks</li></ul>",
+      "videoId": "7gdPytS_seM",
+      "resources": [
+        { "title": "web.dev Image Optimization", "url": "https://web.dev/learn/images" },
+        { "title": "Squoosh (Image Compression)", "url": "https://squoosh.app/" },
+        { "title": "SVGOMG (SVG Optimizer)", "url": "https://jakearchibald.github.io/svgomg/" },
+        { "title": "Cloudinary", "url": "https://cloudinary.com/" },
+        { "title": "sharp (Node.js Image Processing)", "url": "https://sharp.pixelplumbing.com/" }
+      ]
+    },
+    {
+      "id": "caching-perf",
+      "title": "Caching Strategies",
+      "description": "Browser cache, CDNs, service workers, and cache invalidation.",
+      "difficulty": "intermediate",
+      "category": "performance",
+      "content": "<h2>Caching for Speed</h2><p>Effective caching dramatically reduces load times for returning visitors.</p><h3>Browser Caching</h3><pre><code># Immutable assets (hash in filename)\\nCache-Control: public, max-age=31536000, immutable\\n\\n# Dynamic content\\nCache-Control: private, no-cache\\n\\n# Never cache\\nCache-Control: no-store</code></pre><h3>Caching Layers</h3><ol><li><strong>Browser Cache:</strong> Local storage on device</li><li><strong>CDN Cache:</strong> Edge servers worldwide</li><li><strong>Application Cache:</strong> Redis, in-memory</li><li><strong>Database Cache:</strong> Query cache, indexes</li></ol><h3>Service Workers</h3><pre><code>// Cache-first strategy\\nself.addEventListener('fetch', (event) =&gt; {\\n  event.respondWith(\\n    caches.match(event.request)\\n      .then(cached =&gt; cached || fetch(event.request))\\n  );\\n});</code></pre><h3>CDN Best Practices</h3><ul><li>Cache static assets at the edge</li><li>Use content-based hash in filenames</li><li>Set appropriate cache headers</li><li>Purge cache on deployments</li></ul>",
+      "videoId": "HiBDZgTNpXY",
+      "resources": [
+        { "title": "MDN: HTTP Caching", "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching" },
+        { "title": "web.dev: Caching", "url": "https://web.dev/learn/pwa/caching" },
+        { "title": "Cloudflare Caching", "url": "https://developers.cloudflare.com/cache/" },
+        { "title": "Workbox (Service Worker)", "url": "https://developer.chrome.com/docs/workbox/" }
+      ]
+    },
+    {
+      "id": "code-splitting",
+      "title": "Code Splitting & Lazy Loading",
+      "description": "Bundle optimization, dynamic imports, and route-based splitting.",
+      "difficulty": "advanced",
+      "category": "performance",
+      "content": "<h2>Loading Only What's Needed</h2><p>Code splitting breaks your bundle into smaller chunks loaded on demand, improving initial load time.</p><h3>Dynamic Imports</h3><pre><code>// Load module when needed\\nconst module = await import('./heavy-module.js');\\n\\n// React lazy component\\nconst HeavyComponent = lazy(() =&gt; import('./HeavyComponent'));\\n\\n// With Suspense\\n&lt;Suspense fallback={&lt;Loading /&gt;}&gt;\\n  &lt;HeavyComponent /&gt;\\n&lt;/Suspense&gt;</code></pre><h3>Splitting Strategies</h3><ul><li><strong>Route-based:</strong> Each page is a separate chunk</li><li><strong>Component-based:</strong> Heavy components loaded on demand</li><li><strong>Vendor splitting:</strong> Separate node_modules bundle</li></ul><h3>Bundle Analysis</h3><pre><code># Analyze bundle size\\nnpx vite-bundle-visualizer\\nnpx source-map-explorer build/static/js/*.js</code></pre><h3>Tree Shaking</h3><ul><li>Remove unused code at build time</li><li>Use ES modules (not CommonJS)</li><li>Avoid side effects in modules</li><li>Use /* @__PURE__ */ annotations</li></ul>",
+      "videoId": "Xp-KqWLhNyY",
+      "resources": [
+        { "title": "web.dev: Code Splitting", "url": "https://web.dev/articles/reduce-javascript-payloads-with-code-splitting" },
+        { "title": "Bundlephobia (Package Size)", "url": "https://bundlephobia.com/" },
+        { "title": "Vite Code Splitting", "url": "https://vitejs.dev/guide/build.html#chunking-strategy" },
+        { "title": "Webpack Bundle Analyzer", "url": "https://github.com/webpack-contrib/webpack-bundle-analyzer" }
+      ]
+    },
+    {
+      "id": "rendering-performance",
+      "title": "Rendering Performance",
+      "description": "JavaScript execution, layout thrashing, and animation optimization.",
+      "difficulty": "advanced",
+      "category": "performance",
+      "content": "<h2>Smooth 60fps</h2><p>Users expect smooth, responsive interfaces. Understanding the rendering pipeline helps you avoid jank.</p><h3>The Rendering Pipeline</h3><ol><li><strong>JavaScript:</strong> Execute handlers, update DOM</li><li><strong>Style:</strong> Calculate computed styles</li><li><strong>Layout:</strong> Calculate geometry (expensive!)</li><li><strong>Paint:</strong> Fill in pixels</li><li><strong>Composite:</strong> Combine layers</li></ol><h3>Avoid Layout Thrashing</h3><pre><code>// Bad - forces layout on each iteration\\nelements.forEach(el =&gt; {\\n  el.style.width = el.offsetWidth + 10 + 'px';\\n});\\n\\n// Good - batch read then write\\nconst widths = elements.map(el =&gt; el.offsetWidth);\\nelements.forEach((el, i) =&gt; {\\n  el.style.width = widths[i] + 10 + 'px';\\n});</code></pre><h3>Use CSS for Animations</h3><pre><code>/* GPU-accelerated properties */\\ntransform: translateX(100px);\\nopacity: 0.5;\\n\\n/* Avoid animating */\\nwidth, height, top, left, margin, padding</code></pre><h3>Performance APIs</h3><ul><li><code>requestAnimationFrame</code> for visual updates</li><li><code>requestIdleCallback</code> for non-urgent work</li><li><code>IntersectionObserver</code> for visibility detection</li></ul>",
+      "videoId": "cmZqLzPy0XE",
+      "resources": [
+        { "title": "web.dev: Rendering Performance", "url": "https://web.dev/articles/rendering-performance" },
+        { "title": "CSS Triggers", "url": "https://csstriggers.com/" },
+        { "title": "Chrome DevTools Performance", "url": "https://developer.chrome.com/docs/devtools/performance" },
+        { "title": "What forces layout", "url": "https://gist.github.com/paulirish/5d52fb081b3570c81e3a" }
+      ]
+    },
+    {
+      "id": "network-performance",
+      "title": "Network Performance",
+      "description": "Resource hints, HTTP/2, compression, and reducing requests.",
+      "difficulty": "advanced",
+      "category": "performance",
+      "content": "<h2>Optimizing Network</h2><p>Network performance directly impacts how fast users can access your content.</p><h3>Resource Hints</h3><pre><code>&lt;!-- DNS prefetch --&gt;\\n&lt;link rel=\"dns-prefetch\" href=\"//api.example.com\"&gt;\\n\\n&lt;!-- Preconnect --&gt;\\n&lt;link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"&gt;\\n\\n&lt;!-- Preload critical resources --&gt;\\n&lt;link rel=\"preload\" href=\"critical.css\" as=\"style\"&gt;\\n\\n&lt;!-- Prefetch next page --&gt;\\n&lt;link rel=\"prefetch\" href=\"next-page.js\"&gt;</code></pre><h3>Compression</h3><ul><li><strong>Gzip:</strong> Universal support, good compression</li><li><strong>Brotli:</strong> 15-25% smaller than gzip</li><li>Enable at server/CDN level</li></ul><h3>HTTP/2 & HTTP/3</h3><ul><li>Multiplexing: Multiple requests over one connection</li><li>Header compression</li><li>Server push (deprecated)</li><li>HTTP/3: QUIC protocol, faster connections</li></ul><h3>Reducing Round Trips</h3><ul><li>Use CDN for assets (closer servers)</li><li>Inline critical CSS</li><li>Bundle small modules</li><li>Use 103 Early Hints</li></ul>",
+      "videoId": "8_0TlDo_wD8",
+      "resources": [
+        { "title": "web.dev: Resource Hints", "url": "https://web.dev/articles/preconnect-and-dns-prefetch" },
+        { "title": "HTTP/3 Explained", "url": "https://http3-explained.haxx.se/" },
+        { "title": "Brotli at Google", "url": "https://github.com/google/brotli" },
+        { "title": "103 Early Hints", "url": "https://developer.chrome.com/blog/early-hints/" }
+      ]
+    }
+  ]
+}

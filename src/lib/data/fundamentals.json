@@ -1,0 +1,134 @@
+{
+  "id": "fundamentals",
+  "name": "Fundamentals",
+  "description": "Core concepts of how the web works",
+  "topics": [
+    {
+      "id": "internet-basics",
+      "title": "How the Internet Works",
+      "description": "Understanding the backbone of the web: packets, protocols, and routing.",
+      "difficulty": "beginner",
+      "category": "fundamentals",
+      "content": "<h2>What is the Internet?</h2><p>The Internet is a global network of interconnected computers that communicate through standardized protocols. It's the infrastructure that enables the World Wide Web, email, file sharing, and countless other services we use daily.</p><h3>How Data Travels</h3><p>When you request a webpage, your data doesn't travel in one piece. Instead, it's broken down into small <strong>packets</strong>—typically around 1,500 bytes each. These packets travel independently across the network and are reassembled at their destination.</p><h3>Key Components</h3><ul><li><strong>Packets:</strong> Small chunks of data containing a portion of your message plus routing information (source and destination IP addresses).</li><li><strong>Routers:</strong> Specialized devices that read packet headers and forward them toward their destination, choosing the best path based on network conditions.</li><li><strong>IP Addresses:</strong> Unique numerical identifiers for every device on the network. IPv4 uses 32-bit addresses (e.g., 192.168.1.1), while IPv6 uses 128-bit addresses for the growing internet.</li><li><strong>ISPs (Internet Service Providers):</strong> Companies that provide access to the internet backbone and route traffic between networks.</li></ul><h3>The TCP/IP Model</h3><p>The Internet operates on a layered model:</p><ol><li><strong>Application Layer:</strong> Where your apps live (HTTP, FTP, SMTP)</li><li><strong>Transport Layer:</strong> Manages end-to-end communication (TCP, UDP)</li><li><strong>Internet Layer:</strong> Handles addressing and routing (IP)</li><li><strong>Network Access Layer:</strong> Physical transmission of data (Ethernet, WiFi)</li></ol>",
+      "videoId": "sMHzfigUxz4",
+      "resources": [
+        { "title": "MDN: How the Internet works", "url": "https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/How_does_the_Internet_work" },
+        { "title": "High Performance Browser Networking (Book)", "url": "https://hpbn.co/" },
+        { "title": "Cloudflare Learning Center", "url": "https://www.cloudflare.com/learning/" },
+        { "title": "Computer Networking: A Top-Down Approach", "url": "https://gaia.cs.umass.edu/kurose_ross/online_lectures.htm" }
+      ]
+    },
+    {
+      "id": "http-https",
+      "title": "HTTP/HTTPS Protocols",
+      "description": "Request/response cycle, status codes, headers, and secure connections.",
+      "difficulty": "beginner",
+      "category": "fundamentals",
+      "content": "<h2>Understanding HTTP</h2><p>HTTP (Hypertext Transfer Protocol) is the foundation of data communication on the web. It follows a simple <strong>request-response model</strong> where clients (browsers) send requests to servers, which return responses.</p><h3>HTTP Methods</h3><ul><li><strong>GET:</strong> Retrieve data from the server (should be idempotent)</li><li><strong>POST:</strong> Submit data to create a new resource</li><li><strong>PUT:</strong> Update an existing resource completely</li><li><strong>PATCH:</strong> Partially update an existing resource</li><li><strong>DELETE:</strong> Remove a resource from the server</li></ul><h3>Status Codes</h3><ul><li><strong>2xx (Success):</strong> 200 OK, 201 Created, 204 No Content</li><li><strong>3xx (Redirection):</strong> 301 Moved Permanently, 304 Not Modified</li><li><strong>4xx (Client Error):</strong> 400 Bad Request, 401 Unauthorized, 404 Not Found</li><li><strong>5xx (Server Error):</strong> 500 Internal Server Error, 503 Service Unavailable</li></ul><h3>HTTPS: The Secure Version</h3><p>HTTPS adds encryption using TLS, ensuring data exchanged between browser and server cannot be intercepted or tampered with.</p>",
+      "videoId": "j9QmMEWmcfo",
+      "resources": [
+        { "title": "MDN: HTTP Documentation", "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP" },
+        { "title": "HTTP/3 Explained (Cloudflare)", "url": "https://www.cloudflare.com/learning/performance/what-is-http3/" },
+        { "title": "httpstat.us - HTTP Status Codes", "url": "https://httpstat.us/" },
+        { "title": "Postman Learning Center", "url": "https://learning.postman.com/docs/getting-started/introduction/" },
+        { "title": "RFC 9110 - HTTP Semantics", "url": "https://www.rfc-editor.org/rfc/rfc9110.html" }
+      ]
+    },
+    {
+      "id": "dns",
+      "title": "DNS & Domain Names",
+      "description": "How domain names translate to IP addresses.",
+      "difficulty": "beginner",
+      "category": "fundamentals",
+      "content": "<h2>The Domain Name System (DNS)</h2><p>DNS is the phonebook of the Internet. It translates human-readable domain names into machine-readable IP addresses.</p><h3>DNS Record Types</h3><ul><li><strong>A Record:</strong> Maps a domain to an IPv4 address</li><li><strong>AAAA Record:</strong> Maps a domain to an IPv6 address</li><li><strong>CNAME:</strong> Creates an alias pointing to another domain</li><li><strong>MX:</strong> Directs email to mail servers</li><li><strong>TXT:</strong> Stores text information (SPF, DKIM verification)</li></ul><h3>TTL (Time to Live)</h3><p>Each DNS record has a TTL value that tells resolvers how long to cache the record. Lower TTL means faster propagation but more DNS queries.</p>",
+      "videoId": "mpQZVYPuDGU",
+      "resources": [
+        { "title": "Cloudflare: DNS Deep Dive", "url": "https://www.cloudflare.com/learning/dns/what-is-dns/" },
+        { "title": "How DNS Works (Interactive)", "url": "https://howdns.works/" },
+        { "title": "dig Command Tutorial", "url": "https://www.hostinger.com/tutorials/how-to-use-the-dig-command-in-linux/" },
+        { "title": "DNS Checker Tool", "url": "https://dnschecker.org/" },
+        { "title": "mess with dns (Sandbox)", "url": "https://messwithdns.net/" }
+      ]
+    },
+    {
+      "id": "browsers",
+      "title": "How Browsers Work",
+      "description": "Rendering engines, DOM construction, and the critical rendering path.",
+      "difficulty": "intermediate",
+      "category": "fundamentals",
+      "content": "<h2>Inside the Browser</h2><p>Modern browsers transform HTML, CSS, and JavaScript into interactive pages through a complex rendering pipeline.</p><h3>The Critical Rendering Path</h3><ol><li><strong>DOM Construction:</strong> Parse HTML into a tree structure</li><li><strong>CSSOM Construction:</strong> Parse CSS into the CSS Object Model</li><li><strong>Render Tree:</strong> Combine DOM and CSSOM</li><li><strong>Layout:</strong> Calculate positions and sizes</li><li><strong>Paint:</strong> Fill in pixels</li><li><strong>Composite:</strong> Combine layers</li></ol><h3>JavaScript's Impact</h3><p>JavaScript is parser-blocking by default. Use <code>async</code> or <code>defer</code> to prevent blocking the render.</p>",
+      "videoId": "EoYkl8rwbiM",
+      "resources": [
+        { "title": "Inside look at modern web browser (Chrome)", "url": "https://developer.chrome.com/blog/inside-browser-part1/" },
+        { "title": "web.dev: Critical Rendering Path", "url": "https://web.dev/articles/critical-rendering-path" },
+        { "title": "How Browsers Work (Classic)", "url": "https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/" },
+        { "title": "V8 JavaScript Engine Blog", "url": "https://v8.dev/blog" },
+        { "title": "Chrome DevTools Performance", "url": "https://developer.chrome.com/docs/devtools/performance" }
+      ]
+    },
+    {
+      "id": "web-hosting",
+      "title": "Web Hosting Basics",
+      "description": "Types of hosting, servers, and deploying your first website.",
+      "difficulty": "beginner",
+      "category": "fundamentals",
+      "content": "<h2>What is Web Hosting?</h2><p>Web hosting is a service that allows you to publish your website on the internet by storing files on servers accessible worldwide.</p><h3>Types of Hosting</h3><ul><li><strong>Static Hosting:</strong> Netlify, Vercel, GitHub Pages - perfect for HTML/CSS/JS</li><li><strong>VPS:</strong> DigitalOcean, Linode - virtual private servers</li><li><strong>Cloud:</strong> AWS, GCP, Azure - scalable infrastructure</li><li><strong>PaaS:</strong> Heroku, Railway, Render - managed platforms</li></ul>",
+      "videoId": "d_pKMh73oPg",
+      "resources": [
+        { "title": "Netlify Documentation", "url": "https://docs.netlify.com/" },
+        { "title": "Vercel Documentation", "url": "https://vercel.com/docs" },
+        { "title": "DigitalOcean Tutorials", "url": "https://www.digitalocean.com/community/tutorials" },
+        { "title": "AWS Free Tier Guide", "url": "https://aws.amazon.com/free/" },
+        { "title": "Caddy Server (Modern Web Server)", "url": "https://caddyserver.com/docs/" }
+      ]
+    },
+    {
+      "id": "dev-tools",
+      "title": "Browser Developer Tools",
+      "description": "Inspecting elements, debugging, network analysis, and performance profiling.",
+      "difficulty": "beginner",
+      "category": "fundamentals",
+      "content": "<h2>Mastering Browser DevTools</h2><p>DevTools are essential for debugging and optimizing web applications.</p><h3>Key Panels</h3><ul><li><strong>Elements:</strong> Inspect and modify DOM/CSS live</li><li><strong>Console:</strong> JavaScript REPL and logging</li><li><strong>Network:</strong> Monitor all HTTP requests</li><li><strong>Sources:</strong> Debugging with breakpoints</li><li><strong>Performance:</strong> Profiling and flame charts</li><li><strong>Application:</strong> Storage, service workers, PWA</li></ul>",
+      "videoId": "gTVpBbFWrZU",
+      "resources": [
+        { "title": "Chrome DevTools Documentation", "url": "https://developer.chrome.com/docs/devtools/" },
+        { "title": "Firefox DevTools Guide", "url": "https://firefox-source-docs.mozilla.org/devtools-user/" },
+        { "title": "DevTools Tips (Daily Tips)", "url": "https://devtoolstips.org/" },
+        { "title": "Lighthouse Performance Audits", "url": "https://developer.chrome.com/docs/lighthouse/overview/" },
+        { "title": "Can I DevTools?", "url": "https://nicedoc.io/nicedoc/nicedoc" }
+      ]
+    },
+    {
+      "id": "web-standards",
+      "title": "Web Standards & W3C",
+      "description": "Understanding standards bodies, specifications, and browser compatibility.",
+      "difficulty": "intermediate",
+      "category": "fundamentals",
+      "content": "<h2>The Foundation of the Open Web</h2><p>Web standards ensure websites work consistently across browsers and devices.</p><h3>Standards Bodies</h3><ul><li><strong>W3C:</strong> HTML, CSS, accessibility (WCAG)</li><li><strong>WHATWG:</strong> Living HTML standard</li><li><strong>ECMA:</strong> JavaScript/ECMAScript</li><li><strong>IETF:</strong> HTTP, TLS protocols</li></ul>",
+      "videoId": "cWdBz7-v4Qk",
+      "resources": [
+        { "title": "WHATWG HTML Spec", "url": "https://html.spec.whatwg.org/" },
+        { "title": "Can I Use (Browser Support)", "url": "https://caniuse.com/" },
+        { "title": "Baseline (Web Features)", "url": "https://web.dev/baseline" },
+        { "title": "TC39 Proposals (JavaScript)", "url": "https://github.com/tc39/proposals" },
+        { "title": "Web Platform Tests", "url": "https://wpt.fyi/" }
+      ]
+    },
+    {
+      "id": "client-server",
+      "title": "Client-Server Architecture",
+      "description": "Understanding the relationship between frontends and backends.",
+      "difficulty": "intermediate",
+      "category": "fundamentals",
+      "content": "<h2>Web Application Architecture</h2><p>Client-server is the fundamental model where clients request resources and servers respond.</p><h3>Communication Patterns</h3><ul><li><strong>REST:</strong> Resource-based URLs with HTTP methods</li><li><strong>GraphQL:</strong> Single endpoint, client specifies data needs</li><li><strong>WebSockets:</strong> Real-time bidirectional communication</li><li><strong>gRPC:</strong> High-performance binary protocol</li></ul>",
+      "videoId": "L5BlpP-ywyE",
+      "resources": [
+        { "title": "System Design Primer (GitHub)", "url": "https://github.com/donnemartin/system-design-primer" },
+        { "title": "REST API Design Best Practices", "url": "https://restfulapi.net/" },
+        { "title": "GraphQL Official Docs", "url": "https://graphql.org/learn/" },
+        { "title": "The Twelve-Factor App", "url": "https://12factor.net/" },
+        { "title": "Architecture Patterns (Martin Fowler)", "url": "https://martinfowler.com/architecture/" }
+      ]
+    }
+  ]
+}

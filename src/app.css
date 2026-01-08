@@ -1,0 +1,297 @@
+@import "tailwindcss";
+
+/* IBM Plex Sans - Carbon's Primary Font */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+/* ============================================
+   Carbon Design System v11 Theme Tokens
+   Based on: https://carbondesignsystem.com/elements/color/tokens
+   ============================================ */
+
+:root {
+  /* Typography - IBM Plex Sans */
+  --font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  /* ========================================
+     WHITE THEME (g10) - Light Mode
+     ======================================== */
+
+  /* Background */
+  --cds-background: #ffffff;
+  --cds-background-hover: rgba(141, 141, 141, 0.12);
+  --cds-background-active: rgba(141, 141, 141, 0.5);
+  --cds-background-selected: rgba(141, 141, 141, 0.2);
+  --cds-background-brand: #0f62fe;
+
+  /* Layer */
+  --cds-layer-01: #f4f4f4;
+  --cds-layer-02: #ffffff;
+  --cds-layer-03: #f4f4f4;
+  --cds-layer-hover-01: #e8e8e8;
+  --cds-layer-hover-02: #e8e8e8;
+  --cds-layer-active-01: #c6c6c6;
+  --cds-layer-selected-01: #e0e0e0;
+
+  /* Field */
+  --cds-field-01: #f4f4f4;
+  --cds-field-02: #ffffff;
+  --cds-field-hover-01: #e8e8e8;
+
+  /* Border */
+  --cds-border-subtle-00: #e0e0e0;
+  --cds-border-subtle-01: #c6c6c6;
+  --cds-border-strong-01: #8d8d8d;
+  --cds-border-interactive: #0f62fe;
+  --cds-border-tile-01: #c6c6c6;
+
+  /* Text */
+  --cds-text-primary: #161616;
+  --cds-text-secondary: #525252;
+  --cds-text-placeholder: #a8a8a8;
+  --cds-text-on-color: #ffffff;
+  --cds-text-helper: #6f6f6f;
+  --cds-text-error: #da1e28;
+  --cds-text-inverse: #ffffff;
+
+  /* Link */
+  --cds-link-primary: #0f62fe;
+  --cds-link-primary-hover: #0043ce;
+  --cds-link-visited: #8a3ffc;
+
+  /* Icon */
+  --cds-icon-primary: #161616;
+  --cds-icon-secondary: #525252;
+  --cds-icon-interactive: #0f62fe;
+
+  /* Support */
+  --cds-support-success: #24a148;
+  --cds-support-warning: #f1c21b;
+  --cds-support-error: #da1e28;
+  --cds-support-info: #0043ce;
+
+  /* Focus */
+  --cds-focus: #0f62fe;
+
+  /* Tag Colors */
+  --cds-tag-color-green: #24a148;
+  --cds-tag-background-green: #a7f0ba;
+  --cds-tag-color-blue: #0043ce;
+  --cds-tag-background-blue: #d0e2ff;
+  --cds-tag-color-purple: #8a3ffc;
+  --cds-tag-background-purple: #e8daff;
+
+  /* Spacing Scale (Carbon uses rem, base 16px) */
+  --cds-spacing-01: 0.125rem;  /* 2px */
+  --cds-spacing-02: 0.25rem;   /* 4px */
+  --cds-spacing-03: 0.5rem;    /* 8px */
+  --cds-spacing-04: 0.75rem;   /* 12px */
+  --cds-spacing-05: 1rem;      /* 16px */
+  --cds-spacing-06: 1.5rem;    /* 24px */
+  --cds-spacing-07: 2rem;      /* 32px */
+  --cds-spacing-08: 2.5rem;    /* 40px */
+  --cds-spacing-09: 3rem;      /* 48px */
+}
+
+/* ========================================
+   GRAY 100 THEME (g100) - Dark Mode
+   Softer dark tones with subtle warmth
+   ======================================== */
+
+.dark {
+  /* Background - softer dark, not pure black */
+  --cds-background: #1a1a1c;
+  --cds-background-hover: rgba(255, 255, 255, 0.08);
+  --cds-background-active: rgba(255, 255, 255, 0.16);
+  --cds-background-selected: rgba(255, 255, 255, 0.12);
+  --cds-background-brand: #0f62fe;
+
+  /* Layer - slightly elevated dark tones */
+  --cds-layer-01: #242426;
+  --cds-layer-02: #2e2e32;
+  --cds-layer-03: #3a3a3f;
+  --cds-layer-hover-01: #2c2c30;
+  --cds-layer-hover-02: #38383d;
+  --cds-layer-active-01: #444449;
+  --cds-layer-selected-01: #323236;
+
+  /* Field */
+  --cds-field-01: #242426;
+  --cds-field-02: #2e2e32;
+  --cds-field-hover-01: #2c2c30;
+
+  /* Border - visible but not harsh */
+  --cds-border-subtle-00: #38383d;
+  --cds-border-subtle-01: #48484e;
+  --cds-border-strong-01: #6a6a70;
+  --cds-border-interactive: #4589ff;
+  --cds-border-tile-01: #48484e;
+
+  /* Text - slightly off-white for reduced eye strain */
+  --cds-text-primary: #f0f0f2;
+  --cds-text-secondary: #b8b8bc;
+  --cds-text-placeholder: #6a6a70;
+  --cds-text-on-color: #ffffff;
+  --cds-text-helper: #8a8a90;
+  --cds-text-error: #ff8389;
+  --cds-text-inverse: #1a1a1c;
+
+  /* Link */
+  --cds-link-primary: #78a9ff;
+  --cds-link-primary-hover: #a6c8ff;
+  --cds-link-visited: #be95ff;
+
+  /* Icon */
+  --cds-icon-primary: #f0f0f2;
+  --cds-icon-secondary: #b8b8bc;
+  --cds-icon-interactive: #4589ff;
+
+  /* Support */
+  --cds-support-success: #42be65;
+  --cds-support-warning: #f1c21b;
+  --cds-support-error: #fa4d56;
+  --cds-support-info: #4589ff;
+
+  /* Focus */
+  --cds-focus: #ffffff;
+
+  /* Tag Colors (Dark) */
+  --cds-tag-color-green: #6fdc8c;
+  --cds-tag-background-green: #0e3a1f;
+  --cds-tag-color-blue: #a6c8ff;
+  --cds-tag-background-blue: #0a2d5e;
+  --cds-tag-color-purple: #d4bbff;
+  --cds-tag-background-purple: #2d1a4d;
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-size: 100%; /* 16px base for Carbon */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--cds-background);
+  color: var(--cds-text-primary);
+  font-size: 0.875rem; /* 14px - Carbon productive base */
+  line-height: 1.29;
+  letter-spacing: 0.16px;
+  transition: background-color 0.11s ease, color 0.11s ease;
+}
+
+/* ============================================
+   Carbon Typography Classes
+   ============================================ */
+
+/* Headings */
+.cds-heading-07 {
+  font-size: 2.625rem; /* 42px */
+  line-height: 1.19;
+  font-weight: 300;
+  letter-spacing: 0;
+}
+
+.cds-heading-06 {
+  font-size: 2rem; /* 32px */
+  line-height: 1.25;
+  font-weight: 300;
+  letter-spacing: 0;
+}
+
+.cds-heading-05 {
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.cds-heading-04 {
+  font-size: 1.75rem; /* 28px */
+  line-height: 1.29;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.cds-heading-03 {
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.cds-heading-compact-02 {
+  font-size: 1rem; /* 16px */
+  line-height: 1.375;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.cds-heading-compact-01 {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.29;
+  font-weight: 600;
+  letter-spacing: 0.16px;
+}
+
+/* Body */
+.cds-body-compact-02 {
+  font-size: 1rem; /* 16px */
+  line-height: 1.375;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.cds-body-compact-01 {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.29;
+  font-weight: 400;
+  letter-spacing: 0.16px;
+}
+
+.cds-body-01 {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.43;
+  font-weight: 400;
+  letter-spacing: 0.16px;
+}
+
+/* Labels & Helper */
+.cds-label-01 {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1.34;
+  font-weight: 400;
+  letter-spacing: 0.32px;
+}
+
+.cds-label-02 {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.29;
+  font-weight: 400;
+  letter-spacing: 0.16px;
+}
+
+.cds-helper-text-01 {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1.34;
+  font-weight: 400;
+  letter-spacing: 0.32px;
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.transition-theme {
+  transition: background-color 0.11s ease, color 0.11s ease, border-color 0.11s ease;
+}
