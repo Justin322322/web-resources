@@ -1,6 +1,19 @@
 <script lang="ts">
 	import ThemeToggle from './ThemeToggle.svelte';
-	import { Github } from 'lucide-svelte';
+	import { Github, Star } from 'lucide-svelte';
+	import { onMount } from 'svelte';
+
+	let starCount = 0;
+
+	onMount(async () => {
+		try {
+			const res = await fetch('https://api.github.com/repos/Justin322322/web-resources');
+			const data = await res.json();
+			starCount = data.stargazers_count || 0;
+		} catch (e) {
+			starCount = 0;
+		}
+	});
 </script>
 
 <!-- Carbon UI Shell Header -->
@@ -22,15 +35,13 @@
 					hover:bg-[var(--cds-layer-hover-01)] hover:text-[var(--cds-text-primary)]"
 			>
 				<Github size={16} />
-				<span class="hidden sm:inline">Star on GitHub</span>
-				<img 
-					src="https://img.shields.io/github/stars/Justin322322/web-resources?style=flat&label=&color=161616&labelColor=161616" 
-					alt="GitHub stars"
-					class="h-[18px] dark:invert"
-				/>
+				<span class="hidden sm:inline">Star</span>
+				<span class="flex items-center gap-[4px] text-[var(--cds-text-primary)]">
+					<Star size={14} class="text-[var(--cds-support-warning)]" />
+					{starCount}
+				</span>
 			</a>
 			<ThemeToggle />
 		</div>
 	</div>
 </header>
-
